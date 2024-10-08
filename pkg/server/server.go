@@ -28,6 +28,7 @@ var (
 
 func run(cmd *cobra.Command, args []string) {
 	info()
+	listen(bindArg, portArg)
 }
 
 func perRun(cmd *cobra.Command, args []string) error {
