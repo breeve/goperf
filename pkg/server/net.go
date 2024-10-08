@@ -27,7 +27,7 @@ func (es *echoServer) OnTraffic(c gnet.Conn) gnet.Action {
 	return gnet.None
 }
 
-func listen(address string, port int) {
-	echo := &echoServer{addr: fmt.Sprintf("tcp://%s:%d", address, port), multicore: true}
+func listen(address string, port int, protocol string) {
+	echo := &echoServer{addr: fmt.Sprintf("%s://%s:%d", protocol, address, port), multicore: true}
 	logrus.Fatal(gnet.Run(echo, echo.addr, gnet.WithMulticore(true)))
 }
